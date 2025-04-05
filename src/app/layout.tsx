@@ -1,5 +1,6 @@
+import { Header } from "@/app/componenets/Header/Header";
 import "./globals.css";
-import Header from "./componenets/Header";
+
 
 export const metadata = {
   title: "MLSA Portfolio",
@@ -12,9 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Header />  {/* Navbar */}
+    <html lang="en" className="scroll-smooth">
+      
+      <body className="bg-white dark:bg-gray-900 transition-colors duration-300">
+    
+      <Header />
         {children}
       </body>
     </html>
