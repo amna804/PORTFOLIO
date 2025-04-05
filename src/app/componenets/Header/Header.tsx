@@ -15,7 +15,7 @@ export const Header = () => {
     const savedTheme = localStorage.getItem('theme');
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
-    
+
     document.documentElement.classList.toggle('dark', initialTheme === 'dark');
     setIsDarkMode(initialTheme === 'dark');
   }, []);
@@ -53,10 +53,10 @@ export const Header = () => {
         <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
           {/* Logo - Fixed Link */}
           <Link href="/" className="flex items-center hover:scale-105 transition-transform">
-            <img 
+            <img
               src="/images/MLSA-removebg-preview.png" // Make sure image is in public folder
-              alt="Website Logo" 
-              className="h-12 w-auto dark:invert"
+              alt="Website Logo"
+              className="h-12 w-auto "
             />
           </Link>
 
@@ -66,11 +66,10 @@ export const Header = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`hover:text-blue-500 transition-colors ${
-                  pathname === item.href 
-                    ? 'text-blue-500 font-medium' 
+                className={`hover:text-blue-500 transition-colors ${pathname === item.href
+                    ? 'text-blue-500 font-medium'
                     : 'text-gray-600 dark:text-gray-200'
-                }`}
+                  }`}
               >
                 {item.title}
               </Link>
@@ -78,15 +77,15 @@ export const Header = () => {
           </nav>
 
           {/* Theme Toggle - Fixed Colors */}
-          <button 
+          <button
             onClick={toggleTheme}
             className="hidden md:block p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
           >
-            <svg 
-              className="w-8 h-8 text-gray-800 dark:text-white" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-8 h-8 text-gray-800 dark:text-white"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
               {isDarkMode ? (
@@ -127,24 +126,23 @@ export const Header = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block py-2 text-lg ${
-                    pathname === item.href
+                  className={`block py-2 text-lg ${pathname === item.href
                       ? 'text-blue-500 font-medium'
                       : 'text-gray-600 dark:text-gray-200'
-                  } hover:text-blue-500 transition-colors`}
+                    } hover:text-blue-500 transition-colors`}
                 >
                   {item.title}
                 </Link>
               ))}
               {/* Mobile Theme Toggle */}
-              <button 
+              <button
                 onClick={toggleTheme}
                 className="w-full p-3 text-left rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-3"
               >
-                <svg 
-                  className="w-6 h-6 text-gray-800 dark:text-white" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-6 h-6 text-gray-800 dark:text-white"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
                   {isDarkMode ? (
